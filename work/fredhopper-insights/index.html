@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="/css/tokens.css">
 <link rel="stylesheet" href="/css/styles.css">
 <script src="/js/case-nav.js" defer></script>
+<script src="/js/zoom.js" defer></script>
 </head>
 <body>
 
@@ -53,10 +54,17 @@
       <p class="label">Case study</p>
       <h1>Rebuilding a decade-old analytics tool that users didn’t trust</h1>
       <figure class="case-hero">
-        <div class="case-shot case-shot--hero" aria-hidden="true">
-          <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="body"><div class="side"><i class="on"></i><i></i><i></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="kpis"><i></i><i class="hl"></i><i></i></div><div class="row"></div><div class="row hl"></div><div class="row"></div><div class="row"></div></div></div></div>
+        <div class="case-shot case-shot--hero">
+          <div class="case-img">
+            <span class="case-img-bar" aria-hidden="true"><i></i><i></i><i></i></span>
+            <picture>
+              <source type="image/avif" srcset="/img/fredhopper-insights/insights-dashboard-480.avif 480w, /img/fredhopper-insights/insights-dashboard-960.avif 960w, /img/fredhopper-insights/insights-dashboard-1440.avif 1440w, /img/fredhopper-insights/insights-dashboard-1920.avif 1920w" sizes="(width >= 70rem) 59rem, calc(100vw - 6rem)">
+              <source type="image/webp" srcset="/img/fredhopper-insights/insights-dashboard-480.webp 480w, /img/fredhopper-insights/insights-dashboard-960.webp 960w, /img/fredhopper-insights/insights-dashboard-1440.webp 1440w, /img/fredhopper-insights/insights-dashboard-1920.webp 1920w" sizes="(width >= 70rem) 59rem, calc(100vw - 6rem)">
+              <img src="/img/fredhopper-insights/insights-dashboard-960.webp" width="1920" height="1440" alt="Insights dashboard with a revenue chart split by navigation, search and other sources, a click-through-rate chart for navigation and search, a table of best-performing search terms, and a list of A/B tests with a tooltip on the experiment winner." fetchpriority="high" decoding="async">
+            </picture>
+          </div>
         </div>
-        <figcaption>The redesigned Insights dashboard. [Placeholder: final screen, ideally beside the old one.]</figcaption>
+        <figcaption>The redesigned Insights dashboard.</figcaption>
       </figure>
       <div class="case-summary">
         <p class="case-lead">Fredhopper Insights is the analytics platform inside Fredhopper, the product discovery engine behind search, recommendations and filtering for some of Europe’s largest e-commerce platforms. It hadn’t changed significantly in over ten years, and clients didn’t rely on it. I interviewed users and non-users, ran workshops with teams across the company, and designed and validated the new platform, which launched to existing customers in summer 2025.</p>
@@ -92,10 +100,17 @@
           <p>Insights should have been where clients checked how their search and merchandising performed. In practice, outdated technology and usability standards had piled up for a decade. The business goal was clear: find where the tool could deliver more value through features, data and usability, and raise adoption, and with it profitability.</p>
           <p>The harder constraint was internal. Engineering wanted stability and efficiency; sales and management wanted new features to sell. Before designing anything, I brought all stakeholders in to share what they already knew. That surfaced the conflict early, challenged many assumed technical limitations (a lot of them were overcome), and tested our starting assumptions against data the teams already had.</p>
           <figure>
-            <div class="case-shot" aria-hidden="true">
-              <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="flow"><i></i><i></i></div><div class="row"></div><div class="row"></div><div class="row"></div></div></div>
+            <div class="case-shot">
+              <div class="case-img">
+                <span class="case-img-bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                <picture>
+                  <source type="image/avif" srcset="/img/fredhopper-insights/old-insights-480.avif 480w, /img/fredhopper-insights/old-insights-960.avif 960w, /img/fredhopper-insights/old-insights-1440.avif 1440w, /img/fredhopper-insights/old-insights-1920.avif 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                  <source type="image/webp" srcset="/img/fredhopper-insights/old-insights-480.webp 480w, /img/fredhopper-insights/old-insights-960.webp 960w, /img/fredhopper-insights/old-insights-1440.webp 1440w, /img/fredhopper-insights/old-insights-1920.webp 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                  <img src="/img/fredhopper-insights/old-insights-960.webp" width="1920" height="1200" alt="The old Insights overview: a revenue line chart, a click-through-rate chart, a table of poorly performing search terms and an A/B-test panel showing no active tests." loading="lazy" decoding="async">
+                </picture>
+              </div>
             </div>
-            <figcaption>The old Insights interface: generic charts and tables, with little to tell users what to do next. [Placeholder]</figcaption>
+            <figcaption>The old Insights interface: generic charts and tables, with little to tell users what to do next.</figcaption>
           </figure>
         </section>
 
@@ -109,10 +124,16 @@
           </ul>
           <p>I shared these in workshops with stakeholders from several disciplines, where we mapped the customer journey and prioritised the issues together.</p>
           <figure>
-            <div class="case-shot" aria-hidden="true">
-              <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="flow"><i></i><i></i><i class="hl"></i><i></i><i></i></div><div class="row"></div><div class="row hl"></div></div></div>
+            <div class="case-shot">
+              <div class="case-img">
+                <picture>
+                  <source type="image/avif" srcset="/img/fredhopper-insights/journey-map-480.avif 480w, /img/fredhopper-insights/journey-map-960.avif 960w, /img/fredhopper-insights/journey-map-1440.avif 1440w, /img/fredhopper-insights/journey-map-1920.avif 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                  <source type="image/webp" srcset="/img/fredhopper-insights/journey-map-480.webp 480w, /img/fredhopper-insights/journey-map-960.webp 960w, /img/fredhopper-insights/journey-map-1440.webp 1440w, /img/fredhopper-insights/journey-map-1920.webp 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                  <img src="/img/fredhopper-insights/journey-map-960.webp" width="1920" height="1036" alt="A seven-step journey map, from the trigger to reconfiguring settings, with the user's actions, thoughts, emotions and opportunities per step. The user is annoyed at the second login and worried at the search-term report." loading="lazy" decoding="async">
+                </picture>
+              </div>
             </div>
-            <figcaption>The customer journey map from the workshops. The low points (logging in twice, unclear numbers, nothing to act on) are where the redesign focused. [Placeholder]</figcaption>
+            <figcaption>The customer journey map from the workshops. The low points (logging in twice, unclear numbers, nothing to act on) are where the redesign focused.</figcaption>
           </figure>
         </section>
 
@@ -128,10 +149,16 @@
               <figcaption>A paper sketch exploring the graphs and lists a dashboard needs, with deep links into the merchandising tool. [Placeholder]</figcaption>
             </figure>
             <figure>
-              <div class="case-shot case-shot--square" aria-hidden="true">
-                <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="flow"><i></i><i class="hl"></i><i></i></div><div class="flow"><i></i><i></i></div></div></div>
+              <div class="case-shot case-shot--square">
+                <div class="case-img">
+                  <picture>
+                    <source type="image/avif" srcset="/img/fredhopper-insights/wireframe-480.avif 480w, /img/fredhopper-insights/wireframe-960.avif 960w, /img/fredhopper-insights/wireframe-1440.avif 1440w, /img/fredhopper-insights/wireframe-1920.avif 1920w" sizes="(width >= 70rem) 22rem, (width > 53.75rem) calc(50vw - 12rem), calc(100vw - 4rem)">
+                    <source type="image/webp" srcset="/img/fredhopper-insights/wireframe-480.webp 480w, /img/fredhopper-insights/wireframe-960.webp 960w, /img/fredhopper-insights/wireframe-1440.webp 1440w, /img/fredhopper-insights/wireframe-1920.webp 1920w" sizes="(width >= 70rem) 22rem, (width > 53.75rem) calc(50vw - 12rem), calc(100vw - 4rem)">
+                    <img src="/img/fredhopper-insights/wireframe-960.webp" width="1920" height="1200" alt="Wireframe of the main dashboard, performance reports, live and archived A/B tests, the A/B-test report, a deep-dive report and a comparison view, with dotted lines showing how they connect." loading="lazy" decoding="async">
+                  </picture>
+                </div>
               </div>
-              <figcaption>The wireframe of pages and their relations. Notifications and documentation were scoped out of the MVP. [Placeholder]</figcaption>
+              <figcaption>The wireframe of pages and their relations. Notifications and documentation were scoped out of the MVP.</figcaption>
             </figure>
           </div>
         </section>
@@ -140,10 +167,16 @@
           <h2 id="context-h">Numbers need context</h2>
           <p>Late in design and during development, edge cases kept appearing. The clearest was the A/B-test overview: a list of significance and improvement percentages meant little on its own. I iterated on the card to make it readable, give quicker access to the relevant details, and add a tooltip that explains each figure.</p>
           <figure>
-            <div class="case-shot" aria-hidden="true">
-              <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="row"></div><div class="row hl"></div><div class="row"></div><div class="row"></div></div></div>
+            <div class="case-shot">
+              <div class="case-img">
+                <picture>
+                  <source type="image/avif" srcset="/img/fredhopper-insights/ab-test-card-480.avif 480w, /img/fredhopper-insights/ab-test-card-960.avif 960w, /img/fredhopper-insights/ab-test-card-1440.avif 1440w, /img/fredhopper-insights/ab-test-card-1920.avif 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                  <source type="image/webp" srcset="/img/fredhopper-insights/ab-test-card-480.webp 480w, /img/fredhopper-insights/ab-test-card-960.webp 960w, /img/fredhopper-insights/ab-test-card-1440.webp 1440w, /img/fredhopper-insights/ab-test-card-1920.webp 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                  <img src="/img/fredhopper-insights/ab-test-card-960.webp" width="1920" height="1200" alt="Left, the old card: a table of running tests with test type, running time and sessions. Right, the new card: each test with its winner, and a tooltip listing view, basket and purchase conversions." loading="lazy" decoding="async">
+                </picture>
+              </div>
             </div>
-            <figcaption>The A/B-test card before and after. The winning variant, and what its percentages mean, are now on the card itself. [Placeholder]</figcaption>
+            <figcaption>The A/B-test card before and after. The winning variant, and what its percentages mean, are now on the card itself.</figcaption>
           </figure>
         </section>
 
@@ -152,10 +185,29 @@
           <p>There was no component library for Insights, and the style of the main Fredhopper platform, Merchandiser Studio, had to be considered. As the designs settled, I built one: every component documented in all its states, with colours, typography and iconography, built from reusable parts (atomic design), and tokens named in the same terms as the engineering teams’ code. I also prototyped transitions and motion in Figma, so engineers could see how things should appear rather than guess.</p>
           <p>I was also responsible for setting up the design-system standards across the company: see <a href="/work/fredhopper-design-system/">Fredhopper design system</a>.</p>
           <figure>
-            <div class="case-shot" aria-hidden="true">
-              <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="swatches"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="row"></div></div></div>
+            <div class="case-shot">
+              <div class="case-img">
+                <picture>
+                  <source type="image/avif" srcset="/img/fredhopper-insights/component-library-480.avif 480w, /img/fredhopper-insights/component-library-960.avif 960w, /img/fredhopper-insights/component-library-1440.avif 1440w, /img/fredhopper-insights/component-library-1920.avif 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                  <source type="image/webp" srcset="/img/fredhopper-insights/component-library-480.webp 480w, /img/fredhopper-insights/component-library-960.webp 960w, /img/fredhopper-insights/component-library-1440.webp 1440w, /img/fredhopper-insights/component-library-1920.webp 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                  <img src="/img/fredhopper-insights/component-library-960.webp" width="1920" height="1200" alt="A library sheet: the navigation bar in three states, a global filtering panel with dropdowns and locale chips, button states, input fields and the icon set." loading="lazy" decoding="async">
+                </picture>
+              </div>
             </div>
-            <figcaption>Library components with their states. Component and token names match the engineering code. [Placeholder]</figcaption>
+            <figcaption>Library components with their states. Component and token names match the engineering code.</figcaption>
+          </figure>
+          <p>Most of Insights should stay out of the way and let the data speak. Empty, error and warning states are the exception, and they’re where I put the most personality. They’re the moments people feel the most: doubt when a report comes back empty, frustration when data won’t load, worry when a warning appears. An illustration and a sentence that sounds like a person can soften that blow, or turn an empty first screen into something to look forward to. In Insights, these states use illustrations from one consistent set, next to plain words about what happened and what to try next.</p>
+          <figure>
+            <div class="case-shot">
+              <div class="case-img">
+                <picture>
+                  <source type="image/avif" srcset="/img/fredhopper-insights/personality-480.avif 480w, /img/fredhopper-insights/personality-960.avif 960w, /img/fredhopper-insights/personality-1440.avif 1440w, /img/fredhopper-insights/personality-1920.avif 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                  <source type="image/webp" srcset="/img/fredhopper-insights/personality-480.webp 480w, /img/fredhopper-insights/personality-960.webp 960w, /img/fredhopper-insights/personality-1440.webp 1440w, /img/fredhopper-insights/personality-1920.webp 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                  <img src="/img/fredhopper-insights/personality-960.webp" width="1920" height="1200" alt="Twelve line illustrations in one style, among them a magnifying glass over a folder, a crane, an unplugged cable and a unicorn standing on “404”. Beside them, a data-report card shows the unicorn above “Error 404 - data not found”, three suggestions and a refresh button." loading="lazy" decoding="async">
+                </picture>
+              </div>
+            </div>
+            <figcaption>The illustration set for empty, error and warning states, and one in use: a report that failed to load says what went wrong and offers three things to try.</figcaption>
           </figure>
         </section>
 
@@ -163,19 +215,111 @@
           <h2 id="outcome-h">Launched as an MVP, then refined</h2>
           <p>Together with sales and management, we chose to launch an MVP and decide what came next based on feedback and data, rather than wait for a complete product. The new Insights launched to existing customers in summer 2025. After launch, I interviewed users and the colleagues closest to them, and later customers who still weren’t using it, to find what was missing.</p>
           <p>We set four KPIs before the work started:</p>
-          <ul class="findings">
-            <li><b>Adoption:</b> the share of all Fredhopper clients using Insights.</li>
-            <li><b>Feature use:</b> the share of users using the new features.</li>
-            <li><b>Sales:</b> sales per quarter, with contract value.</li>
-            <li><b>Revenue:</b> monthly recurring revenue for the platform.</li>
-          </ul>
-          <p>[Dummy: Six months after launch, adoption had grown from 30% to 55% of Fredhopper clients, and most active users were using the new A/B-test and search-term reports.]</p>
-          <figure>
-            <div class="case-shot" aria-hidden="true">
-              <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="body"><div class="side"><i></i><i class="on"></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="kpis"><i></i><i></i><i class="hl"></i></div><div class="row hl"></div><div class="row"></div></div></div></div>
+          <dl class="metrics">
+            <div class="metric">
+              <dt>Adoption</dt>
+              <dd class="metric-value">[TODO]</dd>
+              <dd class="metric-change"><span class="metric-from">from [TODO]</span> <span class="metric-delta">[TODO change]</span></dd>
+              <dd class="metric-what">Share of all Fredhopper clients using Insights</dd>
             </div>
-            <figcaption>A selection of final screens. [Placeholder]</figcaption>
-          </figure>
+            <div class="metric">
+              <dt>Feature use</dt>
+              <dd class="metric-value">[TODO]</dd>
+              <dd class="metric-change"><span class="metric-from">from [TODO]</span> <span class="metric-delta">[TODO change]</span></dd>
+              <dd class="metric-what">Share of users using the new features</dd>
+            </div>
+            <div class="metric">
+              <dt>Sales</dt>
+              <dd class="metric-value">[TODO]</dd>
+              <dd class="metric-change"><span class="metric-from">from [TODO]</span> <span class="metric-delta">[TODO change]</span></dd>
+              <dd class="metric-what">Sales per quarter, with contract value</dd>
+            </div>
+            <div class="metric">
+              <dt>Revenue</dt>
+              <dd class="metric-value">[TODO]</dd>
+              <dd class="metric-change"><span class="metric-from">from [TODO]</span> <span class="metric-delta">[TODO change]</span></dd>
+              <dd class="metric-what">Monthly recurring revenue for the platform</dd>
+            </div>
+          </dl>
+          <div class="screens">
+            <div class="screens-stage">
+              <figure id="final-dashboard">
+                <div class="case-shot">
+                  <div class="case-img">
+                    <span class="case-img-bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <picture>
+                      <source type="image/avif" srcset="/img/fredhopper-insights/final-screen1-480.avif 480w, /img/fredhopper-insights/final-screen1-960.avif 960w, /img/fredhopper-insights/final-screen1-1440.avif 1440w, /img/fredhopper-insights/final-screen1-1920.avif 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                      <source type="image/webp" srcset="/img/fredhopper-insights/final-screen1-480.webp 480w, /img/fredhopper-insights/final-screen1-960.webp 960w, /img/fredhopper-insights/final-screen1-1440.webp 1440w, /img/fredhopper-insights/final-screen1-1920.webp 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                      <img src="/img/fredhopper-insights/final-screen1-960.webp" width="1920" height="1200" alt="Dashboard with revenue and click-through-rate line charts by source, above a table of best-performing search terms and a list of A/B tests with their winners." loading="lazy" decoding="async">
+                    </picture>
+                  </div>
+                </div>
+                <figcaption>The dashboard brings revenue, click-through rate, search terms and A/B tests together on one screen.</figcaption>
+              </figure>
+              <figure id="final-search-terms">
+                <div class="case-shot">
+                  <div class="case-img">
+                    <span class="case-img-bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <picture>
+                      <source type="image/avif" srcset="/img/fredhopper-insights/final-screen2-480.avif 480w, /img/fredhopper-insights/final-screen2-960.avif 960w, /img/fredhopper-insights/final-screen2-1440.avif 1440w, /img/fredhopper-insights/final-screen2-1920.avif 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                      <source type="image/webp" srcset="/img/fredhopper-insights/final-screen2-480.webp 480w, /img/fredhopper-insights/final-screen2-960.webp 960w, /img/fredhopper-insights/final-screen2-1440.webp 1440w, /img/fredhopper-insights/final-screen2-1920.webp 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                      <img src="/img/fredhopper-insights/final-screen2-960.webp" width="1920" height="1200" alt="Search-terms performance report: a table of search terms with product ID, unique searches, average results, conversions and revenue, with three rows selected." loading="lazy" decoding="async">
+                    </picture>
+                  </div>
+                </div>
+                <figcaption>The search-terms report. Terms can be selected and compared side by side.</figcaption>
+              </figure>
+              <figure id="final-empty-state">
+                <div class="case-shot">
+                  <div class="case-img">
+                    <span class="case-img-bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <picture>
+                      <source type="image/avif" srcset="/img/fredhopper-insights/final-screen3-480.avif 480w, /img/fredhopper-insights/final-screen3-960.avif 960w, /img/fredhopper-insights/final-screen3-1440.avif 1440w, /img/fredhopper-insights/final-screen3-1920.avif 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                      <source type="image/webp" srcset="/img/fredhopper-insights/final-screen3-480.webp 480w, /img/fredhopper-insights/final-screen3-960.webp 960w, /img/fredhopper-insights/final-screen3-1440.webp 1440w, /img/fredhopper-insights/final-screen3-1920.webp 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                      <img src="/img/fredhopper-insights/final-screen3-960.webp" width="1920" height="1200" alt="The search-terms report with no results: an illustration of a magnifying glass over a folder, the message “No search results”, three suggestions and a refresh button." loading="lazy" decoding="async">
+                    </picture>
+                  </div>
+                </div>
+                <figcaption>When a report is empty, it says so and suggests what to try next.</figcaption>
+              </figure>
+              <figure id="final-ab-test-report">
+                <div class="case-shot">
+                  <div class="case-img">
+                    <span class="case-img-bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <picture>
+                      <source type="image/avif" srcset="/img/fredhopper-insights/final-screen4-480.avif 480w, /img/fredhopper-insights/final-screen4-960.avif 960w, /img/fredhopper-insights/final-screen4-1440.avif 1440w, /img/fredhopper-insights/final-screen4-1920.avif 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                      <source type="image/webp" srcset="/img/fredhopper-insights/final-screen4-480.webp 480w, /img/fredhopper-insights/final-screen4-960.webp 960w, /img/fredhopper-insights/final-screen4-1440.webp 1440w, /img/fredhopper-insights/final-screen4-1920.webp 1920w" sizes="(width >= 70rem) 47rem, (width > 53.75rem) calc(100vw - 23rem), calc(100vw - 4rem)">
+                      <img src="/img/fredhopper-insights/final-screen4-960.webp" width="1920" height="1200" alt="A/B-test report for a summer campaign: status, labels and notes on the left; a table of variants with revenue as the primary metric, and a chart of each variant’s impact over time." loading="lazy" decoding="async">
+                    </picture>
+                  </div>
+                </div>
+                <figcaption>The A/B-test report. The leading variant is marked with how confident the result is, and each metric shows its change against the default settings.</figcaption>
+              </figure>
+            </div>
+            <fieldset class="screens-thumbs">
+              <legend class="visually-hidden">Show a final screen</legend>
+              <input class="visually-hidden" type="radio" name="final-screens" id="final-dashboard-pick" checked>
+              <label for="final-dashboard-pick">
+                <span class="screens-thumb"><img src="/img/fredhopper-insights/final-screen1-480.webp" width="480" height="300" alt="" loading="lazy" decoding="async"></span>
+                <span class="screens-name">Dashboard</span>
+              </label>
+              <input class="visually-hidden" type="radio" name="final-screens" id="final-search-terms-pick">
+              <label for="final-search-terms-pick">
+                <span class="screens-thumb"><img src="/img/fredhopper-insights/final-screen2-480.webp" width="480" height="300" alt="" loading="lazy" decoding="async"></span>
+                <span class="screens-name">Search terms</span>
+              </label>
+              <input class="visually-hidden" type="radio" name="final-screens" id="final-empty-state-pick">
+              <label for="final-empty-state-pick">
+                <span class="screens-thumb"><img src="/img/fredhopper-insights/final-screen3-480.webp" width="480" height="300" alt="" loading="lazy" decoding="async"></span>
+                <span class="screens-name">Empty state</span>
+              </label>
+              <input class="visually-hidden" type="radio" name="final-screens" id="final-ab-test-report-pick">
+              <label for="final-ab-test-report-pick">
+                <span class="screens-thumb"><img src="/img/fredhopper-insights/final-screen4-480.webp" width="480" height="300" alt="" loading="lazy" decoding="async"></span>
+                <span class="screens-name">A/B-test report</span>
+              </label>
+            </fieldset>
+          </div>
         </section>
 
         <section class="chapter" id="next-time" aria-labelledby="next-time-h">

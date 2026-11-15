@@ -246,6 +246,52 @@
   }
   .case-shot--hero { aspect-ratio: 2 / 1; padding: var(--space-wide) var(--space-huge) 0; border-radius: var(--radius-case); }
   .case-shot--square { aspect-ratio: 4 / 3; padding: var(--space-xl) var(--space-xl) 0; }
+  /* A real image in the panel: the same paper card as the placeholder mockup, cropped at the bottom
+     by the panel. Product screens get the browser bar (.case-img-bar); artboards such as maps and
+     wireframes go without. */
+  .case-img { inline-size: 100%; block-size: 100%; display: flex; flex-direction: column; overflow: hidden; border-radius: var(--radius-md) var(--radius-md) 0 0; background: var(--mock-paper); box-shadow: var(--shadow-mock); }
+  .case-img img { inline-size: 100%; }
+
+  /* Tap to zoom (site/js/zoom.js): an Enlarge button on each real image, and a full-screen viewer
+     in the page's own surface. The viewer fits the image on wide screens; on phones and short
+     landscape screens it shows it at a readable 60rem and the reader swipes to pan. */
+  .case-shot { position: relative; }
+  .case-img.is-zoomable img { cursor: zoom-in; }
+  .zoom-btn {
+    position: absolute; z-index: 1; inset-block-start: var(--space-m); inset-inline-end: var(--space-m);
+    display: grid; place-items: center; inline-size: 2.5rem; block-size: 2.5rem; padding: 0;
+    border: 1px solid var(--color-border-highlight); border-radius: var(--radius-full);
+    background: var(--color-glass-solid); color: var(--color-on-glass); box-shadow: var(--shadow-glass); cursor: zoom-in;
+    transition: border-color var(--duration-fast);
+  }
+  .zoom-btn:hover { border-color: var(--color-text-muted); }
+  .zoom-btn:focus-visible { border-radius: var(--radius-full); }
+  .zoom-btn svg { inline-size: 18px; block-size: 18px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; }
+
+  .zoom { inline-size: 100%; max-inline-size: none; block-size: 100dvh; max-block-size: none; margin: 0; padding: 0; border: 0; background: var(--color-bg); color: var(--color-text); }
+  .zoom[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+  .zoom::backdrop { background: var(--color-bg); }
+  html:has(.zoom[open]) { overflow: hidden; }
+  .zoom-close { justify-self: end; margin: var(--space-l) var(--gutter); }
+  .zoom-view { display: grid; grid-template: minmax(0, 1fr) / minmax(0, 1fr); overflow: auto; overscroll-behavior: contain; padding-inline: var(--gutter); }
+  .zoom-view picture { margin: auto; inline-size: 100%; block-size: 100%; }
+  .zoom-view img { inline-size: 100%; block-size: 100%; max-inline-size: none; object-fit: contain; }
+  .zoom-caption { max-inline-size: var(--container-text); padding: var(--space-m) var(--gutter) var(--space-xl); font-size: var(--text-sm); color: var(--color-text-muted); }
+
+  @media (width <= 40rem), (height <= 30rem) {
+    .zoom-view { padding-inline: var(--gutter-sm); }
+    .zoom-view picture { inline-size: 60rem; max-inline-size: none; block-size: auto; }
+    .zoom-view img { block-size: auto; }
+    .zoom-close { margin: var(--space-m) var(--gutter-sm); }
+    .zoom-caption { padding-inline: var(--gutter-sm); }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .zoom[open] { animation: zoom-fade var(--duration-base) var(--ease-out-soft); }
+    @keyframes zoom-fade { from { opacity: 0; } }
+  }
+  @media (forced-colors: active) {
+    .zoom-btn { border-color: CanvasText; }
+  }
   .case-study figcaption { margin-block-start: var(--space-m); max-inline-size: var(--container-text); font-size: var(--text-sm); color: var(--color-text-muted); }
 
   /* Body: chapter menu beside the chapters */
@@ -273,6 +319,74 @@
   .chapter figure, .figure-pair { margin-block-start: var(--space-xxl); }
   .figure-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xl); }
   .figure-pair figure { margin-block-start: 0; }
+
+  /* Metric tiles in the outcome chapter: what was tracked, the result, the baseline and the change.
+     A <dl>, so the numbers read as text in order. Every tile carries a baseline and a definition;
+     no icons, count-up animation or accent colour (Bart chose tiles knowingly, 15 Nov 2026).
+     Pattern: building-portfolio-pages/references/html-patterns.md "Metric tiles". */
+  .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr)); gap: var(--space-l); margin-block-start: var(--space-xxl); }
+  .metric {
+    display: flex; flex-direction: column; padding: var(--space-xl);
+    border-radius: var(--radius-card); border: 1px solid var(--color-border-highlight); background: var(--color-surface-card);
+  }
+  .metric dt { font-size: var(--text-sm); font-weight: var(--weight-medium); }
+  .metric dd { margin: 0; }
+  .metric-value { margin-block-start: var(--space-s); font-family: var(--font-serif); font-size: var(--text-section); line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); font-variant-numeric: tabular-nums; }
+  /* A value that is words, not a number ("Not measured"), at a size that fits the tile. */
+  .metric-value[data-variant="text"] { font-size: var(--text-2xl); line-height: var(--leading-snug); }
+  .metric-change { margin-block-start: var(--space-s); font-size: var(--text-sm); line-height: var(--leading-snug); font-variant-numeric: tabular-nums; }
+  .metric-from { display: block; color: var(--color-text-muted); }
+  .metric-delta { display: block; margin-block-start: var(--space-xs); font-weight: var(--weight-semibold); }
+  .metric-what { margin-block-start: auto; padding-block-start: var(--space-l); font-size: var(--text-sm); line-height: var(--leading-snug); color: var(--color-text-muted); }
+
+  /* Final screens: a screen switcher. Every screen is a <figure> in the HTML with its own caption;
+     a radio group of thumbnails below picks which one shows. No JavaScript: :has() matches the
+     checked radio to its figure, for up to 5 screens. Without :has(), and on phones, the figures
+     stack at full width and the thumbnails are hidden, so every screen stays readable.
+     Pattern: building-portfolio-pages/references/html-patterns.md "Final screens". */
+  .screens { margin-block-start: var(--space-xxl); }
+  .screens-stage { display: grid; gap: var(--space-xxl); }
+  .screens .screens-stage > figure { margin-block-start: 0; }
+  .screens-thumbs { display: none; min-inline-size: 0; margin: 0; padding: 0; border: 0; }
+
+  @supports selector(:has(*)) {
+    @media (width > 40rem) {
+      /* All figures share one grid cell, so the stage keeps the tallest caption's height and
+         nothing below it moves when the screen changes. Hidden figures leave the accessibility tree. */
+      .screens-stage > figure { grid-area: 1 / 1; visibility: hidden; opacity: 0; }
+      .screens:has(.screens-thumbs > input:nth-of-type(1):checked) .screens-stage > figure:nth-child(1),
+      .screens:has(.screens-thumbs > input:nth-of-type(2):checked) .screens-stage > figure:nth-child(2),
+      .screens:has(.screens-thumbs > input:nth-of-type(3):checked) .screens-stage > figure:nth-child(3),
+      .screens:has(.screens-thumbs > input:nth-of-type(4):checked) .screens-stage > figure:nth-child(4),
+      .screens:has(.screens-thumbs > input:nth-of-type(5):checked) .screens-stage > figure:nth-child(5) { visibility: visible; opacity: 1; }
+
+      .screens-thumbs { display: flex; flex-wrap: wrap; gap: var(--space-l); margin-block-start: var(--space-xl); }
+      .screens-thumbs label { display: grid; gap: var(--space-s); inline-size: 9rem; cursor: pointer; }
+      .screens-thumb {
+        display: flex; align-items: flex-end; aspect-ratio: 16 / 10; padding: var(--space-s) var(--space-s) 0; overflow: hidden;
+        border-radius: var(--radius-md); border: 1px solid var(--color-border-strong);
+        background: radial-gradient(90% 90% at 0% 100%, var(--color-bg-highlight), var(--color-panel-deep));
+        transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+      }
+      /* Placeholder mockup drawn at 2.5× and scaled down, so the thumbnail is a miniature of the screen. */
+      .screens-thumb .ui { flex: none; inline-size: 250%; block-size: 250%; transform: scale(0.4); transform-origin: 0 100%; }
+      .screens-thumb img { inline-size: 100%; block-size: 100%; object-fit: cover; object-position: top left; border-radius: var(--radius-xs) var(--radius-xs) 0 0; }
+      .screens-name { font-size: var(--text-xs); line-height: var(--leading-snug); color: var(--color-text-muted); }
+
+      .screens-thumbs label:hover .screens-thumb { border-color: var(--color-text-muted); }
+      .screens-thumbs input:checked + label .screens-thumb { border-color: var(--color-text); box-shadow: 0 0 0 1px var(--color-text); }
+      .screens-thumbs input:checked + label .screens-name { color: var(--color-text); font-weight: var(--weight-medium); }
+      .screens-thumbs input:focus-visible + label .screens-thumb { outline: var(--focus-ring-width) solid var(--color-focus); outline-offset: var(--focus-ring-offset); }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .screens-stage > figure { transition: opacity var(--duration-base) var(--ease-out-soft), visibility var(--duration-base); }
+      }
+      @media (forced-colors: active) {
+        .screens-thumb { border-color: CanvasText; }
+        .screens-thumbs input:checked + label .screens-name { text-decoration: underline; text-underline-offset: 0.2em; }
+      }
+    }
+  }
 
   /* End: next project as a glass card with a stretched title link */
   .case-end { display: grid; gap: var(--space-xl); justify-items: start; margin-block-start: var(--space-section); }
@@ -322,8 +436,8 @@
 
   /* Placeholder UI mockup (swap for real screenshots later) */
   .ui { inline-size: 100%; block-size: 100%; background: var(--mock-paper); border-radius: var(--radius-md) var(--radius-md) 0 0; box-shadow: var(--shadow-mock); display: flex; flex-direction: column; overflow: hidden; }
-  .ui .chrome { block-size: 22px; display: flex; gap: 5px; align-items: center; padding-inline: 10px; border-block-end: 1px solid var(--mock-line); }
-  .ui .chrome i { inline-size: 7px; block-size: 7px; border-radius: var(--radius-circle); background: var(--mock-dot); }
+  .ui .chrome, .case-img-bar { flex: none; block-size: 22px; display: flex; gap: 5px; align-items: center; padding-inline: 10px; border-block-end: 1px solid var(--mock-line); }
+  .ui .chrome i, .case-img-bar i { inline-size: 7px; block-size: 7px; border-radius: var(--radius-circle); background: var(--mock-dot); }
   .ui .body { flex: 1; display: grid; grid-template-columns: 18% 1fr; }
   .ui .side { border-inline-end: 1px solid var(--mock-line); padding: 12px 10px; display: flex; flex-direction: column; gap: 8px; }
   .ui .side i { block-size: 6px; border-radius: 3px; background: var(--mock-bar); }
@@ -352,7 +466,7 @@
   /* Forced colours: drop decoration, keep structure visible */
   @media (forced-colors: active) {
     .hero::before { display: none; }
-    .case, .card, .xp, .contact-card { border-color: CanvasText; }
+    .case, .card, .xp, .contact-card, .metric { border-color: CanvasText; }
     .tabbar { border: 1px solid CanvasText; }
     .tabbar::before { display: none; }
     .case-shot, .next-card { border-color: CanvasText; }
@@ -375,4 +489,10 @@
     .shot { padding: var(--space-xl) var(--space-xl) 0; aspect-ratio: 4 / 3.4; }
     .sec-head .label { display: none; }
   }
+}
+
+/* ---- Utilities ------------------------------------------------------------- */
+@layer utilities {
+  /* Hidden visually, still read by screen readers and focusable (e.g. the radios behind thumbnails). */
+  .visually-hidden { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 }

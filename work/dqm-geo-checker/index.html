@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="/css/tokens.css">
 <link rel="stylesheet" href="/css/styles.css">
 <script src="/js/case-nav.js" defer></script>
+<script src="/js/zoom.js" defer></script>
 </head>
 <body>
 
@@ -147,13 +148,72 @@
           <h2 id="outcome-h">Sold on its own</h2>
           <p>We chose to launch as soon as possible and validate afterwards. That meant releasing while GEO was still new and relevant, and to users who were more forgiving of small bugs in a brand-new feature.</p>
           <p>After launch I interviewed two groups: long-time DQM users now using the feature, and customers who bought DQM just for GEO, a group larger than we’d expected. The interviews confirmed that the core use cases were covered and set the priorities for what to build next.</p>
-          <p>The feature delivered on both fronts: it shipped out of a hackathon, and it became a commercial success, sold as a separate feature and bringing new customers to the whole platform. [Dummy: 40 new customers in the first 3 months, a quarter of them buying DQM for GEO alone.]</p>
-          <figure>
-            <div class="case-shot" aria-hidden="true">
-              <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="body"><div class="side"><i></i><i></i><i class="on"></i><i></i></div><div class="main"><div class="h"></div><div class="flow"><i class="hl"></i><i></i></div><div class="row"></div><div class="row hl"></div></div></div></div>
+          <p>The feature delivered on both fronts: it shipped out of a hackathon, and it became a commercial success, sold as a separate feature and bringing new customers to the whole platform.</p>
+          <dl class="metrics">
+            <div class="metric">
+              <dt>New customers</dt>
+              <dd class="metric-value">[TODO]</dd>
+              <dd class="metric-change"><span class="metric-from">from [TODO]</span> <span class="metric-delta">[TODO change]</span></dd>
+              <dd class="metric-what">[TODO: what was counted, e.g. new DQM customers after the GEO launch]</dd>
             </div>
-            <figcaption>A selection of final screens. [Placeholder]</figcaption>
-          </figure>
+            <div class="metric">
+              <dt>Bought DQM for GEO alone</dt>
+              <dd class="metric-value">[TODO]</dd>
+              <dd class="metric-change"><span class="metric-from">from [TODO]</span> <span class="metric-delta">[TODO change]</span></dd>
+              <dd class="metric-what">[TODO: share of new customers who came for the GEO feature]</dd>
+            </div>
+          </dl>
+          <div class="screens">
+            <div class="screens-stage">
+              <figure id="final-screen-1">
+                <div class="case-shot" aria-hidden="true">
+                  <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="body"><div class="side"><i></i><i></i><i class="on"></i><i></i></div><div class="main"><div class="h"></div><div class="flow"><i class="hl"></i><i></i></div><div class="row"></div><div class="row hl"></div></div></div></div>
+                </div>
+                <figcaption>[Placeholder: final screen 1, and what to notice on it.]</figcaption>
+              </figure>
+              <figure id="final-screen-2">
+                <div class="case-shot" aria-hidden="true">
+                  <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="row hl"></div><div class="row"></div><div class="row"></div><div class="row hl"></div><div class="row"></div></div></div>
+                </div>
+                <figcaption>[Placeholder: final screen 2, and what to notice on it.]</figcaption>
+              </figure>
+              <figure id="final-screen-3">
+                <div class="case-shot" aria-hidden="true">
+                  <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="body"><div class="side"><i class="on"></i><i></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="kpis"><i></i><i class="hl"></i><i></i></div><div class="row"></div><div class="row"></div></div></div></div>
+                </div>
+                <figcaption>[Placeholder: final screen 3, and what to notice on it.]</figcaption>
+              </figure>
+              <figure id="final-screen-4">
+                <div class="case-shot" aria-hidden="true">
+                  <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="flow"><i></i><i></i><i class="hl"></i></div><div class="flow"><i></i><i></i><i></i></div></div></div>
+                </div>
+                <figcaption>[Placeholder: final screen 4, and what to notice on it.]</figcaption>
+              </figure>
+            </div>
+            <fieldset class="screens-thumbs">
+              <legend class="visually-hidden">Show a final screen</legend>
+              <input class="visually-hidden" type="radio" name="final-screens" id="final-screen-1-pick" checked>
+              <label for="final-screen-1-pick">
+                <span class="screens-thumb" aria-hidden="true"><span class="ui"><span class="chrome"><i></i><i></i><i></i></span><span class="body"><span class="side"><i></i><i></i><i class="on"></i><i></i></span><span class="main"><span class="h"></span><span class="flow"><i class="hl"></i><i></i></span><span class="row"></span><span class="row hl"></span></span></span></span></span>
+                <span class="screens-name">Screen 1 [TODO]</span>
+              </label>
+              <input class="visually-hidden" type="radio" name="final-screens" id="final-screen-2-pick">
+              <label for="final-screen-2-pick">
+                <span class="screens-thumb" aria-hidden="true"><span class="ui"><span class="chrome"><i></i><i></i><i></i></span><span class="main"><span class="h"></span><span class="row hl"></span><span class="row"></span><span class="row"></span><span class="row hl"></span><span class="row"></span></span></span></span>
+                <span class="screens-name">Screen 2 [TODO]</span>
+              </label>
+              <input class="visually-hidden" type="radio" name="final-screens" id="final-screen-3-pick">
+              <label for="final-screen-3-pick">
+                <span class="screens-thumb" aria-hidden="true"><span class="ui"><span class="chrome"><i></i><i></i><i></i></span><span class="body"><span class="side"><i class="on"></i><i></i><i></i><i></i></span><span class="main"><span class="h"></span><span class="kpis"><i></i><i class="hl"></i><i></i></span><span class="row"></span><span class="row"></span></span></span></span></span>
+                <span class="screens-name">Screen 3 [TODO]</span>
+              </label>
+              <input class="visually-hidden" type="radio" name="final-screens" id="final-screen-4-pick">
+              <label for="final-screen-4-pick">
+                <span class="screens-thumb" aria-hidden="true"><span class="ui"><span class="chrome"><i></i><i></i><i></i></span><span class="main"><span class="h"></span><span class="flow"><i></i><i></i><i class="hl"></i></span><span class="flow"><i></i><i></i><i></i></span></span></span></span>
+                <span class="screens-name">Screen 4 [TODO]</span>
+              </label>
+            </fieldset>
+          </div>
         </section>
       </div>
     </div>
