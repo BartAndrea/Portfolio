@@ -1,0 +1,192 @@
+/* ==========================================================================
+   Design tokens (Direction Light, approved 22 Oct 2026)
+   Single source of truth for colour, type, spacing, radius, shadow and motion.
+   styles.css only references these variables, never raw values.
+   Lead reference: Austin Knight (#22 in 2. Research/light-portfolio-examples/),
+   see 2. Research/Design-brief.md §7. Monochrome: no accent colour.
+
+   Breakpoints (custom properties can't be used inside @media, so they live
+   here as documentation and are hard-coded in styles.css):
+     --bp-tablet  53.75rem (860px)
+     --bp-mobile  40rem    (640px)
+   ========================================================================== */
+
+/* ---- Fonts (self-hosted, Latin subset, SIL Open Font License; see fonts/LICENSE-*.txt).
+   Literal family names are only allowed here; everything else uses --font-*.
+   Both files are variable fonts with weight and optical-size axes. */
+@font-face {
+  font-family: "Inter Variable";
+  src: url("/fonts/inter-latin-opsz-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Newsreader Variable";
+  src: url("/fonts/newsreader-latin-opsz-normal.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Newsreader Variable";
+  src: url("/fonts/newsreader-latin-opsz-italic.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* ---- Colour: primitives (warm neutral ramp) -------------------------- */
+  --neutral-0:   #FFFFFF;
+  --neutral-25:  #FBFBFA;
+  --neutral-150: #E6E5E1;
+  --neutral-600: #53514D;
+  --neutral-800: #2B2A28;
+  --neutral-900: #171615;
+
+  /* ---- Colour: page surface (gradient + texture) ----------------------- */
+  --color-bg:             var(--neutral-150);   /* darkest stop: contrast is checked against this */
+  --color-bg-highlight:   var(--neutral-25);    /* top-left of the radial gradient */
+  --color-beam:           color-mix(in oklch, var(--neutral-0) 55%, transparent);
+  --texture-noise:        url("/textures/noise.png");
+  --texture-noise-size:   160px;
+
+  /* ---- Colour: surfaces ------------------------------------------------ */
+  --color-surface:          color-mix(in oklch, var(--neutral-0) 62%, transparent);   /* secondary buttons */
+  --color-surface-card:     color-mix(in oklch, var(--neutral-0) 20%, transparent);   /* glass cards: page texture shows through, no shadow (ref #22) */
+  --color-panel:            color-mix(in oklch, var(--neutral-900) 5%, transparent);  /* behind screenshots */
+  --color-panel-deep:       color-mix(in oklch, var(--neutral-900) 11%, transparent); /* far end of the case-image gradient */
+  --color-border:           color-mix(in oklch, var(--neutral-900) 9%, transparent);
+  --color-border-strong:    color-mix(in oklch, var(--neutral-900) 22%, transparent);
+  --color-border-highlight: color-mix(in oklch, var(--neutral-0) 85%, transparent);  /* hairline rim on glass cards */
+
+  /* ---- Colour: text ---------------------------------------------------- */
+  --color-text:       var(--neutral-900);
+  --color-text-muted: var(--neutral-600);
+  --color-on-text:    var(--neutral-25);   /* text on a near-black button */
+  --color-focus:      var(--neutral-900);
+
+  /* ---- Colour: glass tab bar (white glass, ref 1. Input/inpiration/glass.webp) ----
+     Very transparent on purpose (Bart, 22 Oct 2026). Legibility comes from --filter-glass, which
+     lightens whatever is behind the bar, so the labels stay readable over dark content too. */
+  --color-glass:             color-mix(in oklch, var(--neutral-0) 35%, transparent);
+  --color-glass-sheen:       color-mix(in oklch, var(--neutral-0) 25%, transparent);   /* brighter right end of the fill */
+  --color-glass-solid:       color-mix(in oklch, var(--neutral-0) 92%, transparent);   /* no backdrop filter, or reduced transparency */
+  --color-glass-rim:         color-mix(in oklch, var(--neutral-0) 55%, transparent);   /* left end of the rim */
+  --color-glass-rim-bright:  var(--neutral-0);                                          /* right end of the rim */
+  --color-glass-highlight:   color-mix(in oklch, var(--neutral-0) 80%, transparent);   /* inset top edge */
+  --color-glass-hover:       color-mix(in oklch, var(--neutral-900) 6%, transparent);
+  --color-on-glass:          var(--neutral-800);   /* grey, but dark enough for 5.2:1 over black content seen through the glass */
+  --color-focus-on-glass:    var(--neutral-900);
+
+  /* ---- Colour: placeholder UI mockups (swap for real screenshots) ------ */
+  --mock-paper:            #FCFCFB;
+  --mock-line:             #ECEBE8;
+  --mock-dot:              #DAD8D4;
+  --mock-bar:              #E3E1DD;
+  --mock-fill:             #F2F1EE;
+  --mock-fill-border:      #E6E4E0;
+  --mock-row:              #F2F1EE;
+  --mock-swatch:           #EEEDEA;
+  --mock-swatch-border:    #E4E2DE;
+  --mock-ink:              #1D1C1B;
+  --mock-ink-soft:         #2A2927;
+  --mock-highlight:        #DEDCD7;
+  --mock-highlight-border: #CFCDC8;
+
+  /* ---- Typography: families -------------------------------------------- */
+  --font-sans:  "Inter Variable", system-ui, sans-serif;
+  --font-serif: "Newsreader Variable", Georgia, serif;
+
+  /* ---- Typography: sizes (rem, so browser text size applies) ----------- */
+  --text-2xs:   0.75rem;     /* 12px labels, tags */
+  --text-xs:    0.8125rem;   /* 13px meta */
+  --text-sm:    0.875rem;    /* 14px */
+  --text-md:    0.9375rem;   /* 15px nav, secondary copy */
+  --text-base:  1.0625rem;   /* 17px body */
+  --text-lg:    1.1875rem;   /* 19px hero support line */
+  --text-xl:    1.375rem;    /* 22px about lead */
+  --text-2xl:   1.625rem;    /* 26px contact heading */
+  --text-card-title: clamp(1.5rem, 1.15rem + 1vw, 2rem);
+  --text-case-title: clamp(1.75rem, 1.2rem + 1.6vw, 2.625rem);   /* case-card headline (ref image 14) */
+  --text-section:    clamp(2rem, 1.55rem + 1.4vw, 2.75rem);
+  --text-display:    clamp(2.75rem, 1.5rem + 4.4vw, 5.5rem);   /* hero h1; max = 2 × min */
+
+  /* ---- Typography: weights --------------------------------------------- */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+
+  /* ---- Typography: line height ----------------------------------------- */
+  --leading-none:   1;
+  --leading-tight:  1.06;
+  --leading-snug:   1.2;
+  --leading-normal: 1.45;
+  --leading-body:   1.6;
+
+  /* ---- Typography: letter spacing -------------------------------------- */
+  --tracking-display: -0.025em;
+  --tracking-tight:   -0.015em;
+  --tracking-subtle:  -0.005em;
+  --tracking-label:    0.1em;
+
+  /* ---- Spacing scale (Bart, 20 Oct 2026): use only these steps ---------- */
+  --space-xs:   4px;
+  --space-s:    8px;
+  --space-m:    12px;
+  --space-l:    16px;
+  --space-xl:   24px;
+  --space-xxl:  32px;
+  --space-wide: 48px;
+  --space-huge: 64px;
+
+  /* ---- Layout (larger distances, built from the scale) ----------------- */
+  --container-max:        1120px;
+  --container-text:       44rem;
+  --gutter:               var(--space-xl);
+  --gutter-sm:            var(--space-l);
+  --nav-height:           64px;                                      /* tab-bar height (icon + label), not spacing */
+  --space-section:        calc(var(--space-huge) * 2);               /* 128px between sections */
+  --space-section-sm:     calc(var(--space-huge) + var(--space-l));  /* 80px on phones */
+  --space-hero-start:     calc(var(--space-huge) * 2.5);             /* 160px above the hero */
+  --space-hero-start-sm:  calc(var(--space-wide) * 2);               /* 96px on phones (was 104) */
+  --chapters-width:       13rem;                                     /* case-study chapter menu column */
+  --chapters-strip-height: 56px;                                     /* sticky chapter strip on phones, for scroll padding */
+
+  /* ---- Radius ---------------------------------------------------------- */
+  --radius-xs:     4px;
+  --radius-sm:     6px;
+  --radius-md:     10px;
+  --radius-lg:     12px;
+  --radius-card:   18px;
+  --radius-case:   28px;
+  --radius-full:   999px;
+  --radius-circle: 50%;
+
+  /* ---- Shadow (soft, layered; measured from the #22 reference) --------- */
+  --shadow-glass:
+    inset 0 1px 0 var(--color-glass-highlight),
+    0 1px 3px rgba(23, 22, 21, .06),
+    0 12px 32px rgba(23, 22, 21, .1);
+  --shadow-mock: 0 2px 4px rgba(23, 22, 21, .05), 0 16px 36px rgba(23, 22, 21, .12);
+  --shadow-btn:  0 1px 2px rgba(23, 22, 21, .12), 0 4px 10px rgba(23, 22, 21, .08);
+  --shadow-callout: 0 2px 4px rgba(23, 22, 21, .06), 0 14px 28px rgba(23, 22, 21, .14);
+
+  /* ---- Focus ----------------------------------------------------------- */
+  --focus-ring-width:  2px;
+  --focus-ring-offset: 3px;
+
+  /* ---- Motion ---------------------------------------------------------- */
+  --ease-out-soft:   cubic-bezier(.2, .7, .2, 1);
+  --duration-fast:   .2s;
+  --duration-base:   .3s;
+  --duration-slow:   .5s;
+  --hover-lift:      -3px;
+
+  /* ---- Effects & stacking ---------------------------------------------- */
+  --filter-glass: blur(32px) contrast(.45) brightness(1.3);   /* blur, then pull dark backdrops up to light grey. Measured worst case 5.22:1 (375px, 2x density, bar over the contact button) */
+  --z-chapters:  5;    /* sticky chapter menu, below the tab bar */
+  --z-nav:       10;
+  --z-skip-link: 20;
+}

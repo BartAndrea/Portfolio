@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fredhopper Insights redesign · Bart Andréa</title>
+<meta name="description" content="Rebuilding Fredhopper Insights, a decade-old e-commerce analytics tool that users didn't trust. Research, design and validation, launched summer 2025.">
+<link rel="canonical" href="https://bartandrea.nl/work/fredhopper-insights/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://bartandrea.nl/work/fredhopper-insights/">
+<meta property="og:title" content="Rebuilding a decade-old analytics tool that users didn't trust">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#E6E5E1">
+<link rel="preload" href="/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/styles.css">
+<script src="/js/case-nav.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- @partial header -->
+<header class="site-header">
+  <a class="logo" href="/">Bart Andréa <span>UX/product designer</span></a>
+  <nav class="tabbar" aria-label="Main">
+    <a href="/#work">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7M3 12.5h18"/></svg>
+      <span>Work</span>
+    </a>
+    <a href="/#experience">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M4 13a8 8 0 1 0 2.35-6.65M3.5 4.5V9H8M12 8v4.5l3 2"/></svg>
+      <span>Experience</span>
+    </a>
+    <a href="/#about">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.75"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>
+      <span>About</span>
+    </a>
+    <a href="/cv.pdf">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M14 3.5H7.5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8zM14 3.5V8h4.5M12 11v6M9.5 14.5 12 17l2.5-2.5"/></svg>
+      <span>CV</span>
+    </a>
+  </nav>
+</header>
+<!-- @end header -->
+
+<main id="main" tabindex="-1">
+  <!-- Draft v1 from 3. Cases/fredhopper-insights.md (not yet approved). Images are placeholders. -->
+  <article class="case-study">
+    <header class="case-intro wrap">
+      <a class="back-link" href="/#work"><span aria-hidden="true">←</span> All work</a>
+      <p class="label">Case study</p>
+      <h1>Rebuilding a decade-old analytics tool that users didn’t trust</h1>
+      <figure class="case-hero">
+        <div class="case-shot case-shot--hero" aria-hidden="true">
+          <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="body"><div class="side"><i class="on"></i><i></i><i></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="kpis"><i></i><i class="hl"></i><i></i></div><div class="row"></div><div class="row hl"></div><div class="row"></div><div class="row"></div></div></div></div>
+        </div>
+        <figcaption>The redesigned Insights dashboard. [Placeholder: final screen, ideally beside the old one.]</figcaption>
+      </figure>
+      <div class="case-summary">
+        <p class="case-lead">Fredhopper Insights is the analytics platform inside Fredhopper, the product discovery engine behind search, recommendations and filtering for some of Europe’s largest e-commerce platforms. It hadn’t changed significantly in over ten years, and clients didn’t rely on it. I interviewed users and non-users, ran workshops with teams across the company, and designed and validated the new platform, which launched to existing customers in summer 2025.</p>
+        <dl class="case-meta">
+          <div><dt>Company</dt><dd>Attraqt (now Rezolve AI)</dd></div>
+          <div><dt>Product</dt><dd>Fredhopper Insights, web app</dd></div>
+          <div><dt>Sector</dt><dd>E-commerce search and merchandising, B2B SaaS</dd></div>
+          <div><dt>My role</dt><dd>UX designer and researcher</dd></div>
+          <div><dt>Team</dt><dd>[Dummy: 1 PM, 4 engineers]</dd></div>
+          <div><dt>Status</dt><dd>Shipped as an MVP</dd></div>
+          <div><dt>Outcome</dt><dd>[Dummy: adoption 30% → 55% of Fredhopper clients]</dd></div>
+        </dl>
+      </div>
+    </header>
+
+    <div class="case-body wrap">
+      <nav class="chapters" aria-label="Chapters">
+        <p class="label chapters-title">Chapters</p>
+        <ul role="list">
+          <li><a href="#problem">A tool nobody relied on</a></li>
+          <li><a href="#trust">Users didn’t trust the numbers</a></li>
+          <li><a href="#patterns">Familiar patterns over new ones</a></li>
+          <li><a href="#context">Numbers need context</a></li>
+          <li><a href="#library">A component library from scratch</a></li>
+          <li><a href="#outcome">Launched as an MVP, then refined</a></li>
+          <li><a href="#next-time">Next time</a></li>
+        </ul>
+      </nav>
+
+      <div class="case-content">
+        <section class="chapter" id="problem" aria-labelledby="problem-h">
+          <h2 id="problem-h">A tool nobody relied on</h2>
+          <p>Insights should have been where clients checked how their search and merchandising performed. In practice, outdated technology and usability standards had piled up for a decade. The business goal was clear: find where the tool could deliver more value through features, data and usability, and raise adoption, and with it profitability.</p>
+          <p>The harder constraint was internal. Engineering wanted stability and efficiency; sales and management wanted new features to sell. Before designing anything, I brought all stakeholders in to share what they already knew. That surfaced the conflict early, challenged many assumed technical limitations (a lot of them were overcome), and tested our starting assumptions against data the teams already had.</p>
+          <figure>
+            <div class="case-shot" aria-hidden="true">
+              <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="flow"><i></i><i></i></div><div class="row"></div><div class="row"></div><div class="row"></div></div></div>
+            </div>
+            <figcaption>The old Insights interface: generic charts and tables, with little to tell users what to do next. [Placeholder]</figcaption>
+          </figure>
+        </section>
+
+        <section class="chapter" id="trust" aria-labelledby="trust-h">
+          <h2 id="trust-h">Users didn’t trust the numbers</h2>
+          <p>I interviewed customers who used Insights and customers who didn’t. Three findings reshaped the brief:</p>
+          <ul class="findings">
+            <li><b>The data looked wrong even when it wasn’t.</b> Terminology and calculations differed from industry standards, so numbers didn’t match tools like Google Analytics, and users concluded the data was unreliable.</li>
+            <li><b>The data wasn’t actionable.</b> Most of it was too generic to tell anyone what to change.</li>
+            <li><b>There was no reason to use it.</b> Insights offered little data that competing platforms didn’t, so clients had no incentive to open it.</li>
+          </ul>
+          <p>I shared these in workshops with stakeholders from several disciplines, where we mapped the customer journey and prioritised the issues together.</p>
+          <figure>
+            <div class="case-shot" aria-hidden="true">
+              <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="flow"><i></i><i></i><i class="hl"></i><i></i><i></i></div><div class="row"></div><div class="row hl"></div></div></div>
+            </div>
+            <figcaption>The customer journey map from the workshops. The low points (logging in twice, unclear numbers, nothing to act on) are where the redesign focused. [Placeholder]</figcaption>
+          </figure>
+        </section>
+
+        <section class="chapter" id="patterns" aria-labelledby="patterns-h">
+          <h2 id="patterns-h">Familiar patterns over new ones</h2>
+          <p>Before solving these issues, I researched how established tools solve them and what the industry standards are, to avoid reinventing the wheel. One decision followed directly from the interviews: we aligned the terminology and calculations in Insights with industry standards, rather than keeping Fredhopper’s own definitions, so its numbers match what users see in tools like Google Analytics.</p>
+          <p>I sketched on paper first, so feedback stayed at the level of concepts and didn’t jump to details too early. A wireframe of the main pages and how they connect then gave engineering and management something concrete to discuss navigation and content against. The final product moved away from it in places.</p>
+          <div class="figure-pair">
+            <figure>
+              <div class="case-shot case-shot--square" aria-hidden="true">
+                <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="kpis"><i></i><i></i></div><div class="row"></div><div class="row"></div></div></div>
+              </div>
+              <figcaption>A paper sketch exploring the graphs and lists a dashboard needs, with deep links into the merchandising tool. [Placeholder]</figcaption>
+            </figure>
+            <figure>
+              <div class="case-shot case-shot--square" aria-hidden="true">
+                <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="flow"><i></i><i class="hl"></i><i></i></div><div class="flow"><i></i><i></i></div></div></div>
+              </div>
+              <figcaption>The wireframe of pages and their relations. Notifications and documentation were scoped out of the MVP. [Placeholder]</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="chapter" id="context" aria-labelledby="context-h">
+          <h2 id="context-h">Numbers need context</h2>
+          <p>Late in design and during development, edge cases kept appearing. The clearest was the A/B-test overview: a list of significance and improvement percentages meant little on its own. I iterated on the card to make it readable, give quicker access to the relevant details, and add a tooltip that explains each figure.</p>
+          <figure>
+            <div class="case-shot" aria-hidden="true">
+              <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="row"></div><div class="row hl"></div><div class="row"></div><div class="row"></div></div></div>
+            </div>
+            <figcaption>The A/B-test card before and after. The winning variant, and what its percentages mean, are now on the card itself. [Placeholder]</figcaption>
+          </figure>
+        </section>
+
+        <section class="chapter" id="library" aria-labelledby="library-h">
+          <h2 id="library-h">A component library from scratch</h2>
+          <p>There was no component library for Insights, and the style of the main Fredhopper platform, Merchandiser Studio, had to be considered. As the designs settled, I built one: every component documented in all its states, with colours, typography and iconography, built from reusable parts (atomic design), and tokens named in the same terms as the engineering teams’ code. I also prototyped transitions and motion in Figma, so engineers could see how things should appear rather than guess.</p>
+          <p>I was also responsible for setting up the design-system standards across the company: see <a href="/work/fredhopper-design-system/">Fredhopper design system</a>.</p>
+          <figure>
+            <div class="case-shot" aria-hidden="true">
+              <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="swatches"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="row"></div></div></div>
+            </div>
+            <figcaption>Library components with their states. Component and token names match the engineering code. [Placeholder]</figcaption>
+          </figure>
+        </section>
+
+        <section class="chapter" id="outcome" aria-labelledby="outcome-h">
+          <h2 id="outcome-h">Launched as an MVP, then refined</h2>
+          <p>Together with sales and management, we chose to launch an MVP and decide what came next based on feedback and data, rather than wait for a complete product. The new Insights launched to existing customers in summer 2025. After launch, I interviewed users and the colleagues closest to them, and later customers who still weren’t using it, to find what was missing.</p>
+          <p>We set four KPIs before the work started:</p>
+          <ul class="findings">
+            <li><b>Adoption:</b> the share of all Fredhopper clients using Insights.</li>
+            <li><b>Feature use:</b> the share of users using the new features.</li>
+            <li><b>Sales:</b> sales per quarter, with contract value.</li>
+            <li><b>Revenue:</b> monthly recurring revenue for the platform.</li>
+          </ul>
+          <p>[Dummy: Six months after launch, adoption had grown from 30% to 55% of Fredhopper clients, and most active users were using the new A/B-test and search-term reports.]</p>
+          <figure>
+            <div class="case-shot" aria-hidden="true">
+              <div class="ui"><div class="chrome"><i></i><i></i><i></i></div><div class="body"><div class="side"><i></i><i class="on"></i><i></i><i></i></div><div class="main"><div class="h"></div><div class="kpis"><i></i><i></i><i class="hl"></i></div><div class="row hl"></div><div class="row"></div></div></div></div>
+            </div>
+            <figcaption>A selection of final screens. [Placeholder]</figcaption>
+          </figure>
+        </section>
+
+        <section class="chapter" id="next-time" aria-labelledby="next-time-h">
+          <h2 id="next-time-h">Next time: more time on the core problems</h2>
+          <p>Next time I’d spend more time on the core issues that need solving before moving on to solutions.</p>
+        </section>
+      </div>
+    </div>
+
+    <footer class="case-end wrap">
+      <div class="next-card">
+        <p class="label">Next project</p>
+        <h2><a href="/work/dqm-geo-checker/">DQM GEO Checker</a></h2>
+        <p>A new feature explaining technology the team itself barely understood.</p>
+      </div>
+      <a class="back-link" href="/#work"><span aria-hidden="true">←</span> All work</a>
+    </footer>
+  </article>
+</main>
+
+<!-- @partial footer -->
+<footer class="site-footer">
+  <div class="wrap"><p>© 2026 Bart Andréa</p><p>Amsterdam · CET</p></div>
+</footer>
+<!-- @end footer -->
+</body>
+</html>
