@@ -1,0 +1,8 @@
+---
+# cPanel Git Version Control: "Deploy HEAD Commit" copies the site into the web root.
+# Overwrites changed files but deletes nothing, so cgi-bin, .well-known (AutoSSL) and
+# files removed from the repo stay on the server; remove those by hand in File Manager.
+deployment:
+  tasks:
+    - export DEPLOYPATH="$HOME/public_html/"
+    - /usr/bin/rsync -a --exclude=.git --exclude=.cpanel.yml --exclude=.gitattributes ./ "$DEPLOYPATH"
